@@ -18,6 +18,10 @@
   - [Les tableaux](#les-tableaux)
   - [Les tableaux indexés](#les-tableaux-indexés)
   - [Les tableaux associatifs](#les-tableaux-associatifs)
+  - [Les tableaux multidimensionnels](#les-tableaux-multidimensionnels)
+  - [Les variables superglobales](#les-variables-superglobales)
+    - [$_GET](#_get)
+  - [Les constantes](#les-constantes)
   - [Les conditions](#les-conditions)
     - [if](#if)
     - [else](#else)
@@ -530,6 +534,150 @@ var_dump($tab3);
 
 ---
 
+#### Les tableaux multidimensionnels
+
+Les tableaux multidimensionnels sont des tableaux qui contiennent des tableaux. Ils sont souvent utilisés pour représenter des données complexes.
+
+```php
+<?php
+// tableau multidimensionnel représentant des données de quelques stagiaires web2025
+
+$webdev_2025 = [
+    "WEBDEV01" => [
+        "Nom" => "Dahmani",
+        "Prenom" => "Reda",
+        "Sites" => [
+            "SitePerso" => "https://2025.webdev-cf2m.be/reda/",
+            "SitePreformation" => "https://2025.webdev-cf2m.be/reda/prefo/",
+            "github" => "https://github.com/redasnkrs",
+        ],
+    ],
+    "WEBDEV02" => [
+        "Nom" => "Darry",
+        "Prenom" => "Samuel",
+        "Sites" => [
+            "SitePerso" => "https://2025.webdev-cf2m.be/samuel/",
+            "SitePreformation" => "https://2025.webdev-cf2m.be/samuel/prefo/",
+            "github" => "https://github.com/Eultype",
+        ],
+    ],
+    "WEBDEV03" => [
+        "Nom" => "Farah",
+        "Prenom" => "Said",
+        "Sites" => [
+            "SitePerso" => "https://2025.webdev-cf2m.be/said/",
+            "SitePreformation" => "https://2025.webdev-cf2m.be/said/prefo/",
+            "github" => "https://github.com/saidweb12",
+        ],
+    ],
+    "WEBDEV04" => [
+        "Nom" => "Horban",
+        "Prenom" => "Mykyta",
+        "Sites" => [
+            "SitePerso" => "https://2025.webdev-cf2m.be/mykyta/",
+            "SitePreformation" => "https://2025.webdev-cf2m.be/mykyta/prefo/",
+            "github" => "https://github.com/NikGorban",
+        ],
+    ],
+    // ... etc
+];
+
+var_dump($webdev_2025);
+
+```
+
+| 11 | ![Exercice 11](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 11 | Créez un fichier nommé `11-exe-array-multi.php` et affichez avec un `echo` les données de la variable `$webdev_2025` ci dessus pour nous afficher le Github de `Mykyta` |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------:| 
+
+---
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+## Les variables superglobales
+
+Les variables superglobales sont des variables prédéfinies qui sont toujours accessibles, quel que soit le contexte.
+
+En PHP, les variables superglobales sont des tableaux associatifs.
+
+https://www.php.net/manual/fr/language.variables.superglobals.php
+
+### $_GET
+
+`$_GET` est une variable superglobale qui est utilisée pour collecter des données de formulaires, après avoir envoyé un formulaire avec la méthode "get".
+
+**On l'utilise surtout pour récupérer des données dans l'URL.**
+
+La manière d'écrire des variables get dans l'URL est la suivante : `?section=contact&page=3&nom=dupont`
+
+```php
+<?php
+// affiche le contenu de la variable superglobale $_GET
+var_dump($_GET);
+?>
+```
+
+| 12 | ![Exercice 12](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 12 | Créez un fichier `12-GET.php` en HTML, puis créez 4 liens qui pointent vers des variables GET différentes |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------:|
+
+
+---
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+## Les constantes
+
+Une constante est un identifiant (un nom) qui représente une valeur simple. Comme son nom l'indique, cette valeur ne peut pas changer durant l'exécution du script (sauf pour les constantes magiques qui changent à chaque fois).
+
+Une constante est définie avec la fonction `define()` ou avec l'opérateur `const`.
+
+Une fois qu'une constante est définie, elle ne peut pas être modifiée ou supprimée !
+
+Les constantes sont utiles pour stocker des informations qui ne changent pas tout au long de l'exécution du script, comme la version du script ou le nom d'un auteur.
+
+**Les paramètres de configuration sont souvent stockés dans des constantes !**
+
+Les constantes sont **globales**. Elles peuvent être utilisées dans toute la page. Attention en orienté objet, les constantes de classe sont définies dans la classe et sont donc accessibles autrement.
+
+Les bonnes pratiques principales de nommage des constantes sont les suivantes :
+
+- Les constantes sont écrites en majuscules.
+- Les constantes sont écrites en snake_case.
+
+
+Avec define() :
+
+```php  
+<?php
+// Définition de la constante avec define()
+define("NOM_DE_LA_CONSTANTE", "valeur de la constante");
+
+// Affichage de la constante
+echo NOM_DE_LA_CONSTANTE;
+?>
+```
+
+Avec const :
+
+```php
+<?php
+// Définition de la constante avec const
+const NOM_DE_LA_CONSTANTE = "valeur de la constante";
+
+// Affichage de la constante
+echo NOM_DE_LA_CONSTANTE;
+?>
+```
+
+---
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
 ### Les conditions
 
 Les conditions sont la deuxième brique fondamentale d'un langage de programmation, elles permettent d'évaluer l'état de propositions, de variables, etc.
@@ -743,18 +891,18 @@ https://www.php.net/manual/fr/language.operators.increment.php
 
 #### Exercices et exemples if - elseif - else
 
-| 11 | ![Exercice 10](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 11 | Créez un fichier `11-eau.php` qui affiche suivant une température allant de -100 à 200 °, l'état de l'eau (solide en dessous de 0 compris) (liquide entre 1 et 99°) (gazeux à partir de 100°) : L'eau est solide à -7° - L'eau est liquide à 33 ° - L'eau est gazeuse à 105° |
+| 13 | ![Exercice 10](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 13 | Créez un fichier `13-eau.php` qui affiche suivant une température allant de -100 à 200 °, l'état de l'eau (solide en dessous de 0 compris) (liquide entre 1 et 99°) (gazeux à partir de 100°) : L'eau est solide à -7° - L'eau est liquide à 33 ° - L'eau est gazeuse à 105° |
 |----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 
 
-| 12 | ![Exercice 12](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 12 | Créez un fichier `12-info.php` qui affiche la configuration complète du serveur Apache, PHP, SQL ... |
+| 14 | ![Exercice 14](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 14 | Créez un fichier `12-info.php` qui affiche la configuration complète du serveur Apache, PHP, SQL ... |
 |----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:----------------------------------------------------------------------------------------------------:|
 
 
 
 
-| 13 | ![Exercice 13](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 13 | Créez un fichier `13-conditions.php` qui affiche suivant un chiffre au hasard entre 0 et 10, vous affiche : Si il est de 0 à 3 : EXACTEMENT : "{chiffre} : Nul, étudie la prochaine fois", Si de 4 à 5 : "{chiffre} : Peut mieux faire" , Si de 6 à 7 : "{chiffre} : Bien", Sinon "{chiffre} : Très bien" |
+| 15 | ![Exercice 15](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 15 | Créez un fichier `15-conditions.php` qui affiche suivant un chiffre au hasard entre 0 et 10, vous affiche : Si il est de 0 à 3 : EXACTEMENT : "{chiffre} : Nul, étudie la prochaine fois", Si de 4 à 5 : "{chiffre} : Peut mieux faire" , Si de 6 à 7 : "{chiffre} : Bien", Sinon "{chiffre} : Très bien" |
 |----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 ---
