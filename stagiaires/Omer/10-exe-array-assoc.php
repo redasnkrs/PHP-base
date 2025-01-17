@@ -123,7 +123,7 @@ echo "<h2> Les stagieres de web2 </h2>";
 foreach ($cf2m["stagiaires"]["maitiers"]["developpeurs"]["web2"] as $stagiaire) {
     echo "<h4> $stagiaire[prenom] </h4>";
 }
-// printiging the proffesuers
+// printiging the proffs
 echo "<h2> Les proffesuer </h2>";
 foreach ($cf2m["professeur"]["language"] as $prof) {
     echo "<h4> $prof[prenom] </h4>";
