@@ -13,7 +13,7 @@ if (isset($_GET['p'])) {
     include "../view/formations.php";
   } elseif ($_GET['p'] == 'formulaire') {
     include '../view/formulaire.php';
-  } elseif ($_GET['p' == 'newsletter']) {
+  } elseif ($_GET['p'] == 'newsletter') {
     include '../view/newsletter.php';
   } elseif ($_GET['p'] == 'programme') {
     include '../view/programme.php';
