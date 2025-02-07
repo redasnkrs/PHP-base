@@ -6,7 +6,7 @@ $json = file_get_contents($link);
 
 if(json_validate($json)){
     $array = json_decode($json);
-    // var_dump($array);
+    //var_dump($array);
 }
 
-echo "<img src='".$array->current->weather_icons[0]."' alt='".$array->current->weather_descriptions[0]."' title='".$array->current->weather_descriptions[0]."'><br>Il fait ".$array->current->temperature." ° à {$array->location->name} en date du {$array->location->localtime}";
+echo "<img src='".$array->current->weather_icons[0]."' alt='".$array->current->weather_descriptions[0]."' title='".$array->current->weather_descriptions[0]."'><br>Il fait ".$array->current->temperature." ° à {$array->location->name} / {$array->location->country} en date du {$array->location->localtime}";
