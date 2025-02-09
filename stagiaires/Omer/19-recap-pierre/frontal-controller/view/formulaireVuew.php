@@ -3,35 +3,39 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Apprendre le développement Web | Newsletter</title>
+	<title>Apprendre le développement Web | Formulaire</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="https://kit.fontawesome.com/a62a90acc1.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<section class="nav-bar">
 
 		<a href="./"><img src="images/logo-cf.png" class="logo"></a>
 		<div>
-			<ul id="topmenu">
-				<li><a href="./">Accueil</a></li>
-				<li><a href="formations.html">Nos formations</a></li>
-				<li><a href="programme.html">Notre programme</a></li>
-				<li><a href="newsletter.html">Newsletter</a></li>
-				<li><a href="formulaire.html">Contact</a></li>		
-			</ul>
+		<?php include 'include/navVuew.php'; ?>
 		</div>
 
 	</section>
-	<section id="newsletters">
-		<div class="text">
-			<h3>Restez informé de nos actualités</h3>
-		    <p>Saisissez votre adresse email pour s'inscrire à notre newsletter</p>
+	<section class="contact-form">
+		<div class="form">
+			<h4>Contactez-nous</h4>
+			<p>Nous sommes toujours là pour vous aider</p>
+
+			<div class="row-form">
+				<input type="text" name="nom" placeholder="Votre Nom">
+				<input type="text" name="email" placeholder="Votre Email">
+			</div>
+			<div class="row-col-form">
+				<input type="text" name="sujet" placeholder="Sujet">
+			</div>
+			<div class="row-col-form">
+				<textarea cols="40" rows="10" placeholder="Comment pouvons-nous vous aider?"></textarea>
+			</div>
+			<div class="row-col-form">
+				<button>Envoyer</button>
+			</div>
+			
 		</div>
-		<p class="showbox" onclick="document.querySelector('.form-newsletters').classList.add('showme');">Intéressé ? Alors cliquez ici</p>
-		<div class="form-newsletters">
-			<input type="text" placeholder="Votre adresse Email">
-			<button class="inputbutton">S'inscrire</button>
-		</div>
+
 	</section>
 	<!-- Section footer------------------->
 <footer>
