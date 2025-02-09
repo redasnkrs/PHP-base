@@ -1,7 +1,7 @@
 <ul id="topmenu">
     <li><a href="./">Accueil</a></li>
-    <li><a href="formations.html">Nos formations</a></li>
-    <li><a href="programme.html">Notre programme</a></li>
-    <li><a href="newsletter.html">Newsletter</a></li>
-    <li><a href="formulaire.html">Contact</a></li>
+    <li><a href="./?page=formation">Nos formations</a></li>
+    <li><a href="./?page=programme">Notre programme</a></li>
+    <li><a href="./?page=newsletter">Newsletter</a></li>
+    <li><a href="./?page=contact">Contact</a></li>
 </ul>
