@@ -108,6 +108,6 @@ for ($i = 1; $i < 5; $i++) {
     }
 }
 
-echo "$i."X".$J."="$multiply";
+echo "$i."X".$j."="$multiply";
 
 echo "</p>";
