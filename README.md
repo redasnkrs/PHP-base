@@ -30,6 +30,7 @@
   - [Autre manière de faire des conditions](#autre-manière-de-faire-des-conditions)
   - [switch](#switch) 
   - [Les opérateurs de comparaison](#les-opérateurs-de-comparaison)
+      - [Les opérateurs et fonctions de comparaison](#les-opérateurs-et-fonctions-de-comparaison)
   - [Les opérateurs logiques](#les-opérateurs-logiques)
   - [Les opérateurs d'affectation](#les-opérateurs-daffectation)
 - [Les boucles](#les-boucles)
@@ -42,6 +43,13 @@
   - [require](#require)
   - [include_once](#include_once)
   - [require_once](#require_once)
+- [Les fonctions](#les-fonctions)
+    - [Les fonctions natives](#les-fonctions-natives)
+    - [Les fonctions personnalisées](#les-fonctions-personnalisées)
+        - [Les paramètres de fonction](#les-paramètres-de-fonction)
+        - [Les paramètres par défaut](#les-paramètres-par-défaut)
+        - [Les arguments nommés](#les-arguments-nommés)
+        - [Les valeurs de retour](#les-valeurs-de-retour)
 
 
 ! [Function à mettre en liste](#function-à-mettre-en-liste) !
@@ -772,7 +780,7 @@ if($a==0){
 
 
 
-| 15 | ![Exercice 15](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 15 | Créez un fichier `15-conditions.php` qui affiche suivant un chiffre au hasard entre 0 et 10, vous affiche : Si il est de 0 à 3 : EXACTEMENT : "{chiffre} : Nul, étudie la prochaine fois", Si de 4 à 5 : "{chiffre} : Peut mieux faire" , Si de 6 à 7 : "{chiffre} : Bien", Sinon "{chiffre} : Très bien" |
+| 15 | ![Exercice 15](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 15 | Créez un fichier `15-conditions.php` qui affiche suivant un chiffre au hasard entre 0 et 10, vous affiche : Si il est de 0 à 3  : "{$chiffre} : Nul, étudie la prochaine fois", Si de 4 à 5 : "{$chiffre} : Peut mieux faire" , Si de 6 à 7 : "{$chiffre} : Bien", Sinon "{$chiffre} : Très bien" |
 |----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 ---
@@ -957,6 +965,19 @@ Les opérateurs de comparaison permettent de comparer deux valeurs.
 
 ---
 
+##### Les opérateurs et fonctions de comparaison
+
+![Opérateurs de comparaison](datas/2025_02_03-11_53_01.png)
+
+
+
+---
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+
 #### Les opérateurs logiques
 
 Les opérateurs logiques permettent de combiner plusieurs conditions.
@@ -1044,16 +1065,16 @@ https://www.php.net/manual/fr/language.operators.assignment.php
 
 Les opérateurs d'incrémentation et décrémentation permettent d'augmenter ou diminuer la valeur d'une variable. Ce sont donc des opérateurs d'affectation également.
 
-| Opérateur | Description | Détails                                                                                                   | Exemple | Résultat |  
-|-----------|-------------|-----------------------------------------------------------------------------------------------------------|---------|----------|
-| ++        | Incrémentation | Incrémente la valeur de 1 | $a = 1; $a++; | 2 |        
-| --        | Décrémentation | Décrémente la valeur de 1 | $a = 1; $a--; | 0 |
-| +=        | Incrémentation | Incrémente la valeur de la variable | $a = 1; $a+=2; | 3 |
-| -=        | Décrémentation | Décrémente la valeur de la variable | $a = 1; $a-=2; | -1 |
-| *=        | Incrémentation | Multiplie la valeur de la variable | $a = 1; $a*=2; | 2 |
-| /=        | Décrémentation | Divise la valeur de la variable | $a = 1; $a/=2; | 0.5 |
-| %=        | Incrémentation | Divise la valeur de la variable et affecte le reste à la variable | $a = 1; $a%=2; | 1 |
-| .=        | Concaténation | Concatène la valeur de la variable | $a = 1; $a.=2; | 12 |
+| Opérateur | Description    | Détails                                                           | Exemple        | Résultat |  
+|-----------|----------------|-------------------------------------------------------------------|----------------|----------|
+| ++        | Incrémentation | Incrémente la valeur de 1                                         | $a = 1; $a++;  | 2        |        
+| --        | Décrémentation | Décrémente la valeur de 1                                         | $a = 1; $a--;  | 0        |
+| +=        | Incrémentation | Incrémente la valeur de la variable                               | $a = 1; $a+=2; | 3        |
+| -=        | Décrémentation | Décrémente la valeur de la variable                               | $a = 1; $a-=2; | -1       |
+| *=        | Incrémentation | Multiplie la valeur de la variable                                | $a = 1; $a*=2; | 2        |
+| /=        | Décrémentation | Divise la valeur de la variable                                   | $a = 1; $a/=2; | 0.5      |
+| %=        | Incrémentation | Divise la valeur de la variable et affecte le reste à la variable | $a = 1; $a%=2; | 1        |
+| .=        | Concaténation  | Concatène la valeur de la variable                                | $a = 1; $a.=2; | 12       |
 
 Attention à l'ordre des opérateurs, car il peut y avoir des erreurs d'interprétation :
 
@@ -1143,9 +1164,9 @@ for(
 | 16 | ![Exercice 16](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 16 | Créez une copie du fichier `16-boucle-for.php` dans votre espace stagiaire, puis créez les boucles for telles qu'indiquées dans les commentaires |
 |----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|
 
-Le résultat de l'exercice 25 devrait ressembler à ceci :
+Le résultat de l'exercice 16 devrait ressembler à ceci :
 
-![exercice 25](https://raw.githubusercontent.com/WebDevCF2m2023/PHP-base/main/datas/screenshot-php-base_8080-2024.01.09-15_54_20.png)
+![exercice 16](https://raw.githubusercontent.com/WebDevCF2m2023/PHP-base/main/datas/screenshot-php-base_8080-2024.01.09-15_54_20.png)
 
 --- 
 
@@ -1400,10 +1421,211 @@ require_once("menu.php");
 
 ---
 
-## Function à mettre en liste
-echo, var_dump(), count(), if, else, elseif, isset, empty(), print_r()
 
-imprimer https://github.com/WebDevCF2m2025/prefo-git-c1/blob/main/files/github-git-cheat-sheet.pdf
+| 19 | ![Exercice 19](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 19 | Copiez les dossiers `formateur\19-recap-pierre` et `formateur\19-recap-CF` dans votre dossier stagiaire. Imitez le site `formateur\19-recap-pierre` en créant une navigation par contrôleur frontal (il se trouve dans `formateur\19-recap-CF\public`) => 1 seule page, et une navigation par une variable de type `$_GET`, qui va chercher les pages dans `formateur\19-recap-CF\view` suivant le lien cliqué. |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:| 
+
+---
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+## Les fonctions
+
+Une fonction est un bloc de code qui peut être réutilisé à plusieurs endroits dans un script.
+
+Une fonction peut être appelée plusieurs fois, elle peut prendre des paramètres et renvoyer une valeur.
+
+Il existe des fonctions prédéfinies en PHP, comme `echo()` ou `print()`, qu'on nomme aussi fonctions natives ou même structures de langage pour les plus courantes.
+
+Il existe aussi des fonctions définies par l'utilisateur.
+
+--- 
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+### Les fonctions natives
+
+Les fonctions natives sont des fonctions prédéfinies en PHP, elles sont utilisables sans avoir à les définir.
+
+Depuis PHP 8 il est possible de changer l'ordre des arguments des fonctions natives, mais nous ne le ferons pas pour le moment.
+
+La différence entre une `fonction` et une `procédure` est que la `fonction` renvoie une valeur avec un `return`, alors que la `procédure` ne renvoie rien.
+
+Les fonctions natives, ainsi que leurs paramètres, seront à connaître à ce paragraphe :
+
+[Liste des fonctions à connaître](https://listphp8.cf2m.be/)
+
+--- 
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+
+
+### Les fonctions personnalisées
+
+Il existe aussi des fonctions définies par l'utilisateur, qu'on nomme fonctions personnalisées.
+
+https://www.php.net/manual/fr/language.functions.php
+
+Pour créer une fonction, on utilise le mot-clé `function` suivi du nom de la fonction, puis des parenthèses `()` et des accolades `{}`.
+
+Les règles de nommage des fonctions sont les mêmes que pour les variables.
+
+Dans ces bases, nous verrons les fonctions peu typées, mais il est possible de typer les arguments des fonctions comme les retours de fonctions.
+
+Le `camelCase` et le `pascalCase` sont les plus utilisés.
+
+```php
+function nomDeLaFonction(){
+  // instructions
+}
+```
+
+```php
+function bonjour(){
+    // utilisation du return pour renvoyer une valeur
+    return "Bonjour";
+}
+```
+
+Pour appeler une fonction, on utilise son nom suivi des parenthèses `()`.
+
+```php
+echo bonjour();
+```
+
+--- 
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+#### Les paramètres de fonction
+
+Une fonction peut prendre des paramètres, qui sont des variables qui seront utilisées dans la fonction. Le terme argument est aussi utilisé. 
+
+Les paramètres sont définis entre les parenthèses `()` de la fonction, séparés par des virgules `,`.
+
+```php
+function nomDeLaFonction($param1, $param2, $param3){
+  // instructions
+}
+```
+
+```php
+// Ceci est en fait une procédure, car elle affiche une valeur sans utiliser de return
+function bonjour($prenom){
+    echo "Bonjour $prenom";
+}
+```
+
+Pour appeler une fonction (ici une procédure) avec des paramètres, on utilise son nom suivi des parenthèses `()`, dans lesquelles on indique les valeurs des paramètres.
+
+```php
+bonjour("John");
+```
+
+
+
+| 20 | ![Exercice 20](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 20 | Crée un fichier nommé `20-ma-fonction.php` dans laquelle tu crée une fonction nommée `estPair` qui vérifie si un entier est pair, puis dans le même fichier testez la fonction ! |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:| 
+
+| 21 | ![Exercice 21](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 21 | Copie le fichier nommé `21-ma-calculette.php` dans ton dossier depuis formateur, dans laquelle tu crée une fonction nommée `calculSimple()` qui vérifie peux calculer les `+`, `-`, `*`, `/`, |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:| 
+
+--- 
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+#### Les paramètres par défaut
+
+Les arguments sont les valeurs des paramètres.
+
+On peut définir des valeurs par défaut (des arguments donc) pour les paramètres, qui seront utilisées si aucun argument n'est passé lors de l'appel de la fonction.
+
+Les paramètres par défaut sont définis avec un `=` après le nom du paramètre. Notez que les paramètres par défaut doivent être définis après les paramètres sans valeur par défaut.
+
+```php
+function nomDeLaFonction($param1, $param2 = "valeur par défaut", $param3 = "valeur par défaut"){
+  // instructions
+}
+```
+
+```php
+function bonjour($prenom = "John"){
+    echo "Bonjour $prenom";
+}
+```
+
+--- 
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+#### Les arguments nommés
+
+Depuis PHP 8, il est possible de passer des arguments nommés aux fonctions natives ou personnalisées.
+
+Les arguments nommés sont passés en préfixant la valeur avec le nom du paramètre suivit d'un deux-points. Utiliser des mots-clés réservés comme nom de paramètre est autorisé. Le nom du paramètre doit être un identifiant, le spécifiant de façon dynamique n'est pas permis.
+
+```php
+<?php
+$str = "Hello-World";
+// par ordre de la fonction par défaut
+echo str_replace("-", " ", $str);
+echo "<hr>";
+// on peut changer cet ordre en utilisant le nom des arguments
+echo str_replace(subject: $str, replace: " ", search: "-");
+```
+
+--- 
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+#### Les valeurs de retour
+
+Une fonction peut renvoyer une valeur avec le mot-clé `return`.
+
+```php
+function nomDeLaFonction($param1, $param2, $param3){
+  // instructions
+  return $valeur;
+}
+```
+
+```php
+function bonjour($prenom){
+    return "Bonjour $prenom";
+}
+```
+
+Pour appeler une fonction avec des paramètres, on utilise son nom suivi des parenthèses `()`, dans lesquelles on indique les valeurs des paramètres.
+
+```php
+echo bonjour("John");
+```
+
+
+--- 
+
+[Retour au menu](#menu-de-navigation)
+
+---
+
+## Function à mettre en liste
+_echo_, _var_dump()_, _count()_, _if_, _else_, _elseif_, _isset()_, _empty()_, _print_r()_, _switch()_, inclusions (include, include_once, require, require_once), for(), foreach(), while(), do{ }while(), mt_rand(), date(), str_replace(), gettype(), settype(), cast, unset(), is_*
+
 
 En cours de création : https://listphp8.cf2m.be/
 
