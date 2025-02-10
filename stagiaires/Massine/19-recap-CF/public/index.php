@@ -17,6 +17,13 @@ if (isset($_GET['page'])) {
         case 'formation':
             include "../view/formations.php";
             break;
+        case 'programme':
+            include "../view/programme.php";
+            break;
+        case 'news';
+            include "../view/newsletter.php";
+        case 'formulaire';
+            include "../view/formulaire.php";
     } 
 }else{
     include "../view/homepageView.php";
