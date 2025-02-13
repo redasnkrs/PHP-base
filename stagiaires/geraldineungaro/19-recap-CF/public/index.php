@@ -9,8 +9,8 @@
 
 // Gestion des variables GET
 
-if (isset($GET['p'])){
-switch ($GET['p']) {
+if (isset($_GET['p'])){
+switch ($_GET['p']) {
     case 'formations':
         include "../view/formationView.php";
         break;
@@ -24,13 +24,15 @@ switch ($GET['p']) {
         include "../view/programmeView.php";
         break;
     default:
-        include "../view/erreur404.php";
+        include "../view/erreur404View.php";
         break;
 }
-}
+}else {
 
 
 // Appel d'une des vues (par défaut l'accueil)
-include "../view/homepageView.php";
+    include "../view/homepageView.php";
+
+}
 
 //var_dump($_GET);

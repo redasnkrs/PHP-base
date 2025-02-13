@@ -9,5 +9,8 @@
 </head>
 <body>
 <h1> ERREUR 404 </h1>
+<?php
+include ("inc/navView.php");
+?>
 <p>Cette page n'existe pas</p>
 </body>
