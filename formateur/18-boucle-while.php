@@ -25,7 +25,7 @@ Par exemple : <br>3! = 3 x 2 x 1 = 6 <br> 5! = 5 x 4 x 3 x 2 x 1 = 120 <br>
 7! = 7 x 6 x 5 x 4 x 3 x 2 x 1 = 5040
 <br><br>";
 
-$factor = 12;
+$factor = mt_rand(3,12);
 $i = $factor;
 $result=1;
 $text ="$factor! =";
