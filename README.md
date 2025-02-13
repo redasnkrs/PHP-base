@@ -1,11 +1,10 @@
 # PHP-base 2025
 
 ## Menu de navigation
-
 - [Présentation](#présentation)
 - [Historique de PHP](#historique-de-php)
 - [Installation de Apache, PHP et MySQL](#installation-de-apache-php-et-mysql)
-  - [Installation de WAMP pour Windows](#installation-de-wamp-pour-windows)
+  - [Installation de WAMP pour Windows](#installation-de-wamp-pour-windows) 
   - [Installation de XAMPP pour MacOs](#installation-de-xampp-pour-macos)
 - [Les fichiers du formateur](#les-fichiers-du-formateur)
 - [Principe des exercices](#principe-des-exercices)
@@ -21,7 +20,7 @@
   - [Les tableaux associatifs](#les-tableaux-associatifs)
   - [Les tableaux multidimensionnels](#les-tableaux-multidimensionnels)
   - [Les variables superglobales](#les-variables-superglobales)
-    - [$\_GET](#_get)
+    - [$_GET](#_get)
 - [Les constantes](#les-constantes)
 - [Les conditions](#les-conditions)
   - [if](#if)
@@ -29,9 +28,9 @@
   - [elseif() ou else if()](#elseif-ou-else-if)
   - [Exercices et exemples if - elseif - else](#exercices-et-exemples-if---elseif---else)
   - [Autre manière de faire des conditions](#autre-manière-de-faire-des-conditions)
-  - [switch](#switch)
+  - [switch](#switch) 
   - [Les opérateurs de comparaison](#les-opérateurs-de-comparaison)
-    - [Les opérateurs et fonctions de comparaison](#les-opérateurs-et-fonctions-de-comparaison)
+      - [Les opérateurs et fonctions de comparaison](#les-opérateurs-et-fonctions-de-comparaison)
   - [Les opérateurs logiques](#les-opérateurs-logiques)
   - [Les opérateurs d'affectation](#les-opérateurs-daffectation)
 - [Les boucles](#les-boucles)
@@ -45,14 +44,17 @@
   - [include_once](#include_once)
   - [require_once](#require_once)
 - [Les fonctions](#les-fonctions)
-  - [Les fonctions natives](#les-fonctions-natives)
-  - [Les fonctions personnalisées](#les-fonctions-personnalisées)
-    - [Les paramètres de fonction](#les-paramètres-de-fonction)
-    - [Les paramètres par défaut](#les-paramètres-par-défaut)
-    - [Les arguments nommés](#les-arguments-nommés)
-    - [Les valeurs de retour](#les-valeurs-de-retour)
+    - [Les fonctions natives](#les-fonctions-natives)
+    - [Les fonctions personnalisées](#les-fonctions-personnalisées)
+        - [Les paramètres de fonction](#les-paramètres-de-fonction)
+        - [Les paramètres par défaut](#les-paramètres-par-défaut)
+        - [Les arguments nommés](#les-arguments-nommés)
+        - [Les valeurs de retour](#les-valeurs-de-retour)
+
 
 ! [Function à mettre en liste](#function-à-mettre-en-liste) !
+
+
 
 ---
 
@@ -60,15 +62,15 @@
 
 ![PHP - Par El Roubio — http://www.elroubio.net/?p=adopt_an_elephpant. Transféré de en.wikibooks à Commons par Adrignola utilisant CommonsHelper., GPL, https://commons.wikimedia.org/w/index.php?curid=11165880](https://github.com/mikhawa/PHP-base/blob/main/datas/Elephpant.png?raw=true)
 
-**PHP**, acronyme récursif de _Hypertext Preprocessor_, est un langage de script utilisé le plus souvent côté serveur :
-
-Dans cette architecture, le serveur interprète le code PHP des pages web demandées et génère du code (Tous les formats de type texte : HTML, XHTML, CSS, XML, JSON, Javascript, …) et/ou des données (JPEG, GIF, PNG, SVG, PDF par exemple) pouvant être interprétés et rendus par un navigateur web.
+**PHP**, acronyme récursif de *Hypertext Preprocessor*, est un langage de script utilisé le plus souvent côté serveur : 
+ 
+Dans cette architecture, le serveur interprète le code PHP des pages web demandées et génère du code (Tous les formats de type texte : HTML, XHTML, CSS, XML, JSON, Javascript, …) et/ou des données (JPEG, GIF, PNG, SVG, PDF par exemple) pouvant être interprétés et rendus par un navigateur web. 
 
 Il a été conçu pour permettre la création d'applications dynamiques, le plus souvent développées pour le Web. Etant un langage de type **script**, il n'est pas obligatoirement [compilé](## "Transformation d'un code lisible par un humain vers un code machine") pour être exécuté. Il est donc interprété à chaque appel de page par le serveur (sauf pour la compilation à la volée [JIT](## "compilation Just-in-Time") ou par gestion des caches).
 
 PHP est le plus souvent couplé à un serveur [Apache](## "Apache est un serveur HTTP conçu pour prendre en charge de nombreux modules : interprétation des langages Perl, PHP, Python et Ruby, serveur proxy, CGI, réécriture d'URL, négociation de contenu, protocoles de communication additionnels, etc...") bien qu'il puisse être installé sur la plupart des [serveurs HTTP](## "Un serveur HTTP est un serveur informatique qui répond à des requêtes du World Wide Web sur un réseau public (Internet) ou privé (intranet) en utilisant principalement le protocole HTTP.") tels que [IIS](## "Internet Information Services (IIS) de Microsoft") ou [nginx](## "NGINX est un système HTTP asynchrone par opposition aux serveurs synchrones où chaque requête est traitée par un processus dédié"). Ce couplage permet de récupérer des informations issues d'une base de données, d'un système de fichiers (contenu de fichiers et de l'arborescence) ou plus simplement des données envoyées par le navigateur afin d'être interprétées ou stockées pour une utilisation ultérieure.
 
-C'est un langage qui peut, comme au début de ce cours, être [peu typé](## "Typage faible :  Propriété d’un langage de programmation d’autoriser l’affectation de variable avec des valeurs ne correspondant pas à son type déclaré.") et souple, donc facile à apprendre par un débutant, mais de fait moins sécurisé et plus difficile à maintenir.
+C'est un langage qui peut, comme au début de ce cours, être [peu typé](## "Typage faible :  Propriété d’un langage de programmation d’autoriser l’affectation de variable avec des valeurs ne correspondant pas à son type déclaré.") et souple, donc facile à apprendre par un débutant, mais de fait moins sécurisé et plus difficile à maintenir. 
 
 Un typage fort est donc conseillé par la suite avec l'adoption de la [Programmation Orientée Objet](## "La programmation orientée objet est un paradigme de programmation informatique. Elle consiste en la définition et l'interaction de briques logicielles appelées objets.") (POO).
 
@@ -87,54 +89,43 @@ Libre, gratuit, simple d'utilisation et d'installation, ce langage nécessite n�
 ### Historique de PHP
 
 #### Les Débuts de PHP (1994-1995) :
-
 - PHP, qui signifie à l'origine "Personal Home Page", a été créé par Rasmus Lerdorf en 1994. À l'époque, il s'agissait d'un simple ensemble de scripts écrits en [langage C](## "C est un langage de programmation impératif, généraliste et de bas niveau. Inventé au début des années 1970 pour réécrire Unix, C est devenu un des langages les plus utilisés, encore de nos jours. De nombreux langages plus modernes comme C++, C#, Java et PHP ou JavaScript ont repris une syntaxe similaire au C et reprennent en partie sa logique.") pour gérer son site web personnel.
 - En 1995, PHP a été officiellement annoncé en tant que langage de script côté serveur, permettant d'ajouter des fonctionnalités dynamiques aux pages web.
 
 #### PHP/FI (1996-1997) :
-
 - La version 2 de PHP a introduit le support des formulaires web, des bases de données et des sessions, faisant du langage un outil plus puissant pour le développement web.
 - PHP/FI (Forms Interpreter) a marqué cette époque, mais il était encore relativement simple par rapport aux versions ultérieures.
 
 #### PHP 3 (1998) :
-
 - PHP 3, sorti en 1998, a apporté un moteur de script remanié, supportant les modules, et a permis à PHP de fonctionner comme un module Apache.
 - L'introduction de la programmation orientée objet (POO) dans PHP 3 a été une étape clé vers la modernisation du langage.
 
 #### PHP 4 (2000) :
-
 - PHP 4, publié en 2000, a apporté des améliorations significatives, notamment la gestion des objets améliorée, des performances accrues et une architecture de modules plus souple.
 - À ce stade, PHP était déjà largement utilisé dans le monde du développement web.
 
 #### PHP 5 (2004) :
-
 - PHP 5, lancé en 2004, a introduit des fonctionnalités majeures telles que le support natif de la POO, la gestion des exceptions, les espaces de noms, et l'amélioration des performances grâce à la refonte du moteur Zend Engine.
 - Ces changements ont permis aux développeurs de créer des applications web plus complexes et structurées.
 
 #### PHP 7 (2015) :
-
 - PHP 7, sorti en 2015, a apporté d'importantes améliorations de performance avec le Zend Engine 3, ainsi que de nouvelles fonctionnalités telles que le support des types de retour scalaires et la gestion améliorée des erreurs.
 - PHP 7 a marqué un grand pas en avant en termes de vitesse d'exécution, faisant du langage un choix encore plus attrayant pour les développeurs.
 
 #### PHP 8 (2020) :
-
 - PHP 8, lancé en 2020, a introduit des fonctionnalités telles que les attributs, les arguments nommés, le JIT (Just-In-Time Compiler) pour des performances encore meilleures, et d'autres améliorations.
 - Cette version a renforcé la modernité de PHP et continué à le positionner comme l'un des langages de script web les plus utilisés.
 
 #### PHP 8.1 (2021) :
-
 - PHP 8.1, lancé en 2021, a introduit des fonctionnalités telles que les attributs `readonly`, les performances améliorées, et de nouvelles fonctionnalités pour les développeurs.
 
 #### PHP 8.2 (2022) :
-
 - PHP 8.2, lancé fin 2022, a mis l'accent sur la modernisation et la simplification.
 
 #### PHP 8.3 (2023) :
-
 - PHP 8.3, lancé fin 2023, a amélioré les performances de JIT, introduit d'un nouvel attribut `#[Override]` pour les méthodes héritées, et d'autres améliorations concernant la gestion des tableaux.
 
 #### Aujourd'hui :
-
 - PHP 8.4 vient de sortir, et PHP 9 est en cours de développement.
 - PHP est toujours largement utilisé pour le développement web, propulsant de nombreux sites et applications.
 - La communauté PHP continue de contribuer à l'évolution du langage, avec des mises à jour régulières et l'ajout de nouvelles fonctionnalités.
@@ -148,7 +139,7 @@ Libre, gratuit, simple d'utilisation et d'installation, ce langage nécessite n�
 
 ### Installation de Apache, PHP et MySQL
 
-Nous allons installer un package qui contient les trois composants nécessaires à la création d'un site web dynamique : Apache, PHP et MySQL (et/ou MariaDB).
+Nous allons installer un package qui contient les trois composants nécessaires à la création d'un site web dynamique : Apache, PHP et MySQL (et/ou MariaDB). 
 
 Ce package s'appelle **WAMP** (Windows, Apache, MySQL, PHP). Il existe aussi **LAMP** (Linux, Apache, MySQL, PHP) et **MAMP** (Macintosh, Apache, MySQL, PHP).
 
@@ -164,11 +155,11 @@ On peut également installer les composants séparément.
 
 #### Installation de WAMP pour Windows
 
-- Télécharger WAMP sur le site officiel :
+- Télécharger WAMP sur le site officiel : 
 
 [https://www.wampserver.com/](https://www.wampserver.com/)
 
-- ou sur le site avec les add-ons :
+- ou sur le site avec les add-ons : 
 
 [https://wampserver.aviatechno.net/](https://wampserver.aviatechno.net/)
 
@@ -187,7 +178,7 @@ https://espritweb.fr/installer-wamp-sur-windows-10-etape-par-etape-et-sans-erreu
 Nous préférerons l'installation de XAMPP pour MacOs, car avec Mamp, il y a des problèmes de droits d'accès, sauf en version payante.
 
 - Télécharger XAMPP sur le site officiel :
-  https://www.apachefriends.org/fr/index.html pour OS X.
+https://www.apachefriends.org/fr/index.html pour OS X.
 
 Voici un petit tutoriel pour installer XAMPP chez vous :
 
@@ -221,7 +212,7 @@ Pour chaque exercice, vous devrez créer vos fichiers avec le nom demandé dans 
 
 N'oubliez pas de créer une `branche` pour ne pas travailler sur la `main` !
 
-Vous pouvez également utiliser ce dossier pour stocker vos fichiers de travail de `PHP-base`.
+Vous pouvez également utiliser ce dossier pour stocker vos fichiers de travail de `PHP-base`. 
 
 **Ne modifiez pas les fichiers de travail de `PHP-base` qui se trouvent en dehors de votre dossier !**
 
@@ -231,8 +222,9 @@ Et si vous souhaitez que je le vois, n'oubliez pas de faire un `pull request` ! 
 
 Les exercices seront reconnaissables par le logo :
 
-| 00  | ![Exercice 00](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 00 | Énoncé de l'exercice |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :------------------: |
+| 00 | ![Exercice 00](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 00 | Énoncé de l'exercice |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:--------------------:|
+
 
 ---
 
@@ -266,8 +258,8 @@ echo "Hello World";
 ?>
 ```
 
-| 01  | ![Exercice 01](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 01 | Créez un fichier `01-hello-world.php` qui affiche "Hello World" dans le navigateur. |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :---------------------------------------------------------------------------------: |
+| 01 | ![Exercice 01](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 01 | Créez un fichier `01-hello-world.php` qui affiche "Hello World" dans le navigateur. |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:-----------------------------------------------------------------------------------:|
 
 ---
 
@@ -277,8 +269,8 @@ Nous pouvons également utiliser les balises `<?= ?>`, celles-ci sont équivalen
 <?="Hello World"?>
 ```
 
-| 02  | ![Exercice 02](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 02 | Créez un fichier `02-hello-world-short.php` qui affiche "Hello World" dans le navigateur. |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :---------------------------------------------------------------------------------------: |
+| 02 | ![Exercice 02](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 02 | Créez un fichier `02-hello-world-short.php` qui affiche "Hello World" dans le navigateur. |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:-----------------------------------------------------------------------------------------:|
 
 ---
 
@@ -295,8 +287,8 @@ echo "<br>Hello friends"
 ?>
 ```
 
-| 03  | ![Exercice 03](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 03 | Créez un fichier `03-hello-friends.php` qui affiche "Hello World<br>Hello friends" dans le navigateur. |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :----------------------------------------------------------------------------------------------------: |
+| 03 | ![Exercice 03](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 03 | Créez un fichier `03-hello-friends.php` qui affiche "Hello World<br>Hello friends" dans le navigateur. |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:------------------------------------------------------------------------------------------------------:|
 
 ---
 
@@ -327,8 +319,8 @@ sur plusieurs lignes
 # Ne fermez pas la balise PHP si vous êtes en fin de fichier
 ```
 
-| 04  | ![Exercice 04](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 04 | Créez un fichier `04-commentaires.php` qui n'affiche rien dans le navigateur ! |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :----------------------------------------------------------------------------: |
+| 04 | ![Exercice 04](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 04 | Créez un fichier `04-commentaires.php` qui n'affiche rien dans le navigateur ! |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:------------------------------------------------------------------------------:|
 
 ---
 
@@ -369,8 +361,8 @@ Nous avons utilisé la fonction native `date()` pour afficher la date et l'heure
 
 Nous verrons plus tard comment fonctionnent les fonctions et variables.
 
-| 05  | ![Exercice 05](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 05 | Créez un fichier `05-php-placement.php` qui affiche le temps du serveur dans une page html ! |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :------------------------------------------------------------------------------------------: |
+| 05 | ![Exercice 05](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 05 | Créez un fichier `05-php-placement.php` qui affiche le temps du serveur dans une page html ! |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:--------------------------------------------------------------------------------------------:|
 
 ---
 
@@ -380,13 +372,13 @@ Nous verrons plus tard comment fonctionnent les fonctions et variables.
 
 ## Les variables
 
-Une variable est un **conteneur pour stocker des informations**.
+Une variable est un **conteneur pour stocker des informations**. 
 
 Elles sont la première brique d'un langage de programmation.
 
-Les variables sont créées en PHP avec le signe `$` suivi du nom de la variable.
+Les variables sont créées en PHP avec le signe `$` suivi du nom de la variable. 
 
-Le nom de la variable doit **commencer** par une lettre ou un tiret bas `_` et ne peut **contenir que des lettres, des chiffres et des tirets bas `_`**.
+Le nom de la variable doit **commencer** par une lettre ou un tiret bas `_` et ne peut **contenir que des lettres, des chiffres et des tirets bas `_`**. 
 
 Les noms de variables sont sensibles à la casse (les majuscules et les minuscules sont différentes).
 
@@ -427,13 +419,13 @@ $nomDeVariable6 = ["clef1" => "valeur1", "clef2" => "valeur2"];
 $nomDeVariable7 = null;
 
 // affichage des variables via le débugueur var_dump()
-var_dump($nom_de_variable_1, $nomDeVariable2, $NomDeVariable3,
+var_dump($nom_de_variable_1, $nomDeVariable2, $NomDeVariable3, 
 $nom_de_variable_4, $nom_de_variable_5, $nomDeVariable6, $nomDeVariable7);
 ?>
 ```
 
-| 06  | ![Exercice 06](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 06 | Créez un fichier `06-php-variables-valides.php` qui affiche uniquement les variables valides |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :------------------------------------------------------------------------------------------: |
+| 06 | ![Exercice 06](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 06 | Créez un fichier `06-php-variables-valides.php` qui affiche uniquement les variables valides |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:--------------------------------------------------------------------------------------------:|
 
 ```php
 <?php
@@ -449,9 +441,8 @@ nom_de_variable	= "Yes";   // ne commence pas par $
 
 ?>
 ```
-
-| 07  | ![Exercice 07](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 07 | Créez un fichier `07-php-variables-non-valides.php` qui affiche également les variables non valides ! |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :---------------------------------------------------------------------------------------------------: |
+| 07 | ![Exercice 07](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 07 | Créez un fichier `07-php-variables-non-valides.php` qui affiche également les variables non valides ! |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:-----------------------------------------------------------------------------------------------------:|
 
 Il existe d'autres types de variables, mais nous les verrons plus tard.
 
@@ -482,8 +473,8 @@ $langages = ["PHP", "MySQL", "JavaScript"];
 var_dump($voitures, $langages);
 ```
 
-| 08  | ![Exercice 08](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 08 | Créez un fichier `08-premier-tableau.php` Créez un tableau indexé (avec uniquement la valeur au format `string`) avec le prénom des élèves de votre classe. Ensuite faites un `var_dump()` pour afficher son contenu |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 08 | ![Exercice 08](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 08 | Créez un fichier `08-premier-tableau.php` Créez un tableau indexé (avec uniquement la valeur au format `string`) avec le prénom des élèves de votre classe. Ensuite faites un `var_dump()` pour afficher son contenu |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 ---
 
@@ -501,15 +492,15 @@ L'index commence à 0.
 <?php
 // Tableau indexé
 $stagiairesWeb2025= [
-    "Agim",
-    "Omer",
-    "Massine",
-    "Loukas",
-    "Soulaiman",
-    "Nordine",
-    "Vahagn",
-    "Daniel",
-    "Samuel",
+    "Agim", 
+    "Omer", 
+    "Massine", 
+    "Loukas", 
+    "Soulaiman", 
+    "Nordine", 
+    "Vahagn", 
+    "Daniel", 
+    "Samuel", 
     "Sola",
     "Reda",
     "Jean-Michaël",
@@ -529,8 +520,8 @@ echo "<p>Les 3 premiers élèves sont : ".$stagiairesWeb2025[0].", ".$stagiaires
  ".$stagiairesWeb2025[2]."</p>";
 ```
 
-| 9   | ![Exercice 9](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 9 | Créez un fichier nommé `09-exe-array-index.php` et affichez avec des `echo` les données de la variable `$monTab = ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix'];` séparées par un `<hr>` à chaque ligne |
-| --- | :-------------------------------------------------------------------------------------------------------: | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 9 | ![Exercice 9](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 9 | Créez un fichier nommé `09-exe-array-index.php` et affichez avec des `echo` les données de la variable `$monTab = ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix'];` séparées par un `<hr>` à chaque ligne |
+|---|:---------------------------------------------------------------------------------------------------------:|:----------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 ---
 
@@ -554,8 +545,9 @@ var_dump($tab3);
 ?>
 ```
 
-| 10  | ![Exercice 10](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 10 | Créez un fichier nommé `10-exe-array-assoc.php` et affichez avec des `echo` les données de la variable `$monTabAssoc =  ["prenom" => "Michaël", "nom" => "Pitz", "caracteristique" => "égocentrique","dateDeNaissance" => "1951-03-02"];` séparées par un `<hr>` à chaque ligne |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 10 | ![Exercice 10](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 10 | Créez un fichier nommé `10-exe-array-assoc.php` et affichez avec des `echo` les données de la variable `$monTabAssoc =  ["prenom" => "Michaël", "nom" => "Pitz", "caracteristique" => "égocentrique","dateDeNaissance" => "1951-03-02"];` séparées par un `<hr>` à chaque ligne |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:| 
+
 
 ---
 
@@ -568,6 +560,7 @@ var_dump($tab3);
 Les tableaux multidimensionnels sont des tableaux qui contiennent des tableaux. Ils sont souvent utilisés pour représenter des données complexes.
 
 Pour accéder à un élément d'un tableau multidimensionnel, nous devons spécifier l'index de chaque tableau entre crochets.
+
 
 ```php
 <?php
@@ -617,8 +610,8 @@ var_dump($webdev_2025);
 
 ```
 
-| 11  | ![Exercice 11](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 11 | Créez un fichier nommé `11-exe-array-multi.php` et affichez avec un `echo` les données de la variable `$webdev_2025` ci dessus pour nous afficher le Github de `Mykyta` |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 11 | ![Exercice 11](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 11 | Créez un fichier nommé `11-exe-array-multi.php` et affichez avec un `echo` les données de la variable `$webdev_2025` ci dessus pour nous afficher le Github de `Mykyta` |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------:| 
 
 ---
 
@@ -634,7 +627,7 @@ En PHP, les variables superglobales sont des tableaux associatifs.
 
 https://www.php.net/manual/fr/language.variables.superglobals.php
 
-### $\_GET
+### $_GET
 
 `$_GET` est une variable superglobale qui est utilisée pour collecter des données de formulaires, après avoir envoyé un formulaire avec la méthode "get".
 
@@ -649,8 +642,9 @@ var_dump($_GET);
 ?>
 ```
 
-| 12  | ![Exercice 12](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 12 | Créez un fichier `12-GET.php` en HTML, puis créez 4 liens qui pointent vers des variables GET différentes |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :-------------------------------------------------------------------------------------------------------: |
+| 12 | ![Exercice 12](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 12 | Créez un fichier `12-GET.php` en HTML, puis créez 4 liens qui pointent vers des variables GET différentes |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------:|
+
 
 ---
 
@@ -677,9 +671,10 @@ Les bonnes pratiques principales de nommage des constantes sont les suivantes :
 - Les constantes sont écrites en majuscules.
 - Les constantes sont écrites en snake_case.
 
+
 Avec define() :
 
-```php
+```php  
 <?php
 // Définition de la constante avec define()
 define("NOM_DE_LA_CONSTANTE", "valeur de la constante");
@@ -730,6 +725,7 @@ if($a){
 
 ---
 
+
 #### else
 
 `else { action si condition d'un if préalable est false}`
@@ -773,14 +769,19 @@ if($a==0){
 
 #### Exercices et exemples if - elseif - else
 
-| 13  | ![Exercice 13](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 13 | Créez un fichier `13-eau.php` qui affiche suivant une température allant de -100 à 200 °, l'état de l'eau (solide en dessous de 0 compris) (liquide entre 1 et 99°) (gazeux à partir de 100°) : L'eau est solide à -7° - L'eau est liquide à 33 ° - L'eau est gazeuse à 105° |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 13 | ![Exercice 13](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 13 | Créez un fichier `13-eau.php` qui affiche suivant une température allant de -100 à 200 °, l'état de l'eau (solide en dessous de 0 compris) (liquide entre 1 et 99°) (gazeux à partir de 100°) : L'eau est solide à -7° - L'eau est liquide à 33 ° - L'eau est gazeuse à 105° |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
-| 14  | ![Exercice 14](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 14 | Créez un fichier `14-pair.php` Une variable donne un numérique au hasard entre 1 et 20, si il est pair affichez 'Le nombre est pair.', sinon 'le nombre est impair.' ... |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
-| 15  | ![Exercice 15](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 15 | Créez un fichier `15-conditions.php` qui affiche suivant un chiffre au hasard entre 0 et 10, vous affiche : Si il est de 0 à 3 : "{$chiffre} : Nul, étudie la prochaine fois", Si de 4 à 5 : "{$chiffre} : Peut mieux faire" , Si de 6 à 7 : "{$chiffre} : Bien", Sinon "{$chiffre} : Très bien" |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+
+| 14 | ![Exercice 14](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 14 | Créez un fichier `14-pair.php` Une variable donne un numérique au hasard entre 1 et 20, si il est pair affichez 'Le nombre est pair.', sinon 'le nombre est impair.'  ... |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+                                                                                                                    
+
+
+
+| 15 | ![Exercice 15](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 15 | Créez un fichier `15-conditions.php` qui affiche suivant un chiffre au hasard entre 0 et 10, vous affiche : Si il est de 0 à 3  : "{$chiffre} : Nul, étudie la prochaine fois", Si de 4 à 5 : "{$chiffre} : Peut mieux faire" , Si de 6 à 7 : "{$chiffre} : Bien", Sinon "{$chiffre} : Très bien" |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 ---
 
@@ -846,13 +847,14 @@ endfor;
 
 Le switch est une autre manière de faire des conditions, il est plus rapide que les if/elseif/else. Mais il ne permet que de vérifier une seule variable, de manière non stricte et seulement son égalité.
 
-_! le switch de JavaScript est stricte contrairement à celui de PHP !_
+*! le switch de JavaScript est stricte contrairement à celui de PHP !*
 
 Pour utiliser un équivalent du switch fortement typé, on peut utiliser match() à partir de PHP 8 :
 
 https://www.php.net/manual/fr/control-structures.match.php
 
 Ou simplement nos bons vieux if/elseif/else.
+
 
 ```php
 $variable = 3;
@@ -933,7 +935,7 @@ switch($hasard1){
 ```
 
 | 15b | ![Exercice 15b](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 15b | Créez un fichier `15b-switch.php` qui affiche EXACTEMENT l'exercice 15 en utilisant un switch |
-| --- | :---------------------------------------------------------------------------------------------------------: | :----------: | :-------------------------------------------------------------------------------------------: |
+|-----|:-----------------------------------------------------------------------------------------------------------:|:------------:|:---------------------------------------------------------------------------------------------:|
 
 ---
 
@@ -941,12 +943,13 @@ switch($hasard1){
 
 ---
 
+
 #### Les opérateurs de comparaison
 
 Les opérateurs de comparaison permettent de comparer deux valeurs.
 
 | Opérateur | Description                                                |
-| --------- | ---------------------------------------------------------- |
+|-----------|------------------------------------------------------------|
 | ==        | Égal à                                                     |
 | ===       | Égal à et du même type ou strictement égal                 |
 | != ou <>  | Différent de                                               |
@@ -966,22 +969,26 @@ Les opérateurs de comparaison permettent de comparer deux valeurs.
 
 ![Opérateurs de comparaison](datas/2025_02_03-11_53_01.png)
 
+
+
 ---
 
 [Retour au menu](#menu-de-navigation)
 
 ---
 
+
 #### Les opérateurs logiques
 
 Les opérateurs logiques permettent de combiner plusieurs conditions.
 
 | Opérateur | Description | Détails                                                                                                   |
-| --------- | ----------- | --------------------------------------------------------------------------------------------------------- |
-| and &&    | ET          | toutes les conditions doivent être vraies                                                                 |
-| or \|\|   | OU          | Une des conditions doit être vraie                                                                        |
-| xor ^     | OU exclusif | Une des conditions doit être vraie, mais pas les deux, peu utilisé sans () car peut provoquer des erreurs |
-| !         | NON Not     | Inverse la condition (true devient false - false devient true)                                            |
+|-----------|-------------|-----------------------------------------------------------------------------------------------------------|
+| and  &&   | ET          | toutes les conditions doivent être vraies                                                                 |
+| or  \|\|  | OU          | Une des conditions doit être vraie                                                                        |
+| xor   ^   | OU exclusif | Une des conditions doit être vraie, mais pas les deux, peu utilisé sans () car peut provoquer des erreurs |
+| !         | NON  Not    | Inverse la condition (true devient false - false devient true)                                            |
+
 
 Lien vers les opérateurs logiques :
 
@@ -993,16 +1000,18 @@ https://www.php.net/manual/fr/language.operators.logical.php
 
 ---
 
+
+
 #### Les opérateurs d'affectation
 
 Les opérateurs d'affectation permettent d'affecter une valeur à une variable.
 
 | Opérateur | Description                   | Détails                                                                |
-| --------- | ----------------------------- | ---------------------------------------------------------------------- |
+|-----------|-------------------------------|------------------------------------------------------------------------|
 | =         | Affectation                   | Affecte une valeur à une variable                                      |
 | +=        | Affectation et addition       | Ajoute la valeur à la variable et affecte le résultat à la variable    |
 | -=        | Affectation et soustraction   | Soustrait la valeur à la variable et affecte le résultat à la variable |
-| \*=       | Affectation et multiplication | Multiplie la valeur à la variable et affecte le résultat à la variable |
+| *=        | Affectation et multiplication | Multiplie la valeur à la variable et affecte le résultat à la variable |
 | /=        | Affectation et division       | Divise la valeur à la variable et affecte le résultat à la variable    |
 | %=        | Affectation et modulo         | Divise la valeur à la variable et affecte le reste à la variable       |
 | .=        | Affectation et concaténation  | Concatène la valeur à la variable et affecte le résultat à la variable |
@@ -1041,6 +1050,7 @@ $a ="coucou";
 $a .=" les amis";
 ```
 
+
 Lien vers les opérateurs d'affectation :
 
 https://www.php.net/manual/fr/language.operators.assignment.php
@@ -1055,16 +1065,16 @@ https://www.php.net/manual/fr/language.operators.assignment.php
 
 Les opérateurs d'incrémentation et décrémentation permettent d'augmenter ou diminuer la valeur d'une variable. Ce sont donc des opérateurs d'affectation également.
 
-| Opérateur | Description    | Détails                                                           | Exemple         | Résultat |
-| --------- | -------------- | ----------------------------------------------------------------- | --------------- | -------- |
-| ++        | Incrémentation | Incrémente la valeur de 1                                         | $a = 1; $a++;   | 2        |
-| --        | Décrémentation | Décrémente la valeur de 1                                         | $a = 1; $a--;   | 0        |
-| +=        | Incrémentation | Incrémente la valeur de la variable                               | $a = 1; $a+=2;  | 3        |
-| -=        | Décrémentation | Décrémente la valeur de la variable                               | $a = 1; $a-=2;  | -1       |
-| \*=       | Incrémentation | Multiplie la valeur de la variable                                | $a = 1; $a\*=2; | 2        |
-| /=        | Décrémentation | Divise la valeur de la variable                                   | $a = 1; $a/=2;  | 0.5      |
-| %=        | Incrémentation | Divise la valeur de la variable et affecte le reste à la variable | $a = 1; $a%=2;  | 1        |
-| .=        | Concaténation  | Concatène la valeur de la variable                                | $a = 1; $a.=2;  | 12       |
+| Opérateur | Description    | Détails                                                           | Exemple        | Résultat |  
+|-----------|----------------|-------------------------------------------------------------------|----------------|----------|
+| ++        | Incrémentation | Incrémente la valeur de 1                                         | $a = 1; $a++;  | 2        |        
+| --        | Décrémentation | Décrémente la valeur de 1                                         | $a = 1; $a--;  | 0        |
+| +=        | Incrémentation | Incrémente la valeur de la variable                               | $a = 1; $a+=2; | 3        |
+| -=        | Décrémentation | Décrémente la valeur de la variable                               | $a = 1; $a-=2; | -1       |
+| *=        | Incrémentation | Multiplie la valeur de la variable                                | $a = 1; $a*=2; | 2        |
+| /=        | Décrémentation | Divise la valeur de la variable                                   | $a = 1; $a/=2; | 0.5      |
+| %=        | Incrémentation | Divise la valeur de la variable et affecte le reste à la variable | $a = 1; $a%=2; | 1        |
+| .=        | Concaténation  | Concatène la valeur de la variable                                | $a = 1; $a.=2; | 12       |
 
 Attention à l'ordre des opérateurs, car il peut y avoir des erreurs d'interprétation :
 
@@ -1115,6 +1125,7 @@ Les fonctions récursives sont également des boucles, mais nous les verrons plu
 
 ---
 
+
 ### for
 
 La boucle `for` est la plus structurée, elle permet de répéter des instructions un certain nombre de fois. Elle est composée de 3 parties :
@@ -1130,6 +1141,8 @@ for(initialisation; condition de sortie de boucle; incrémentation){
   // instructions
 }
 ```
+
+
 
 ```php
 <?php
@@ -1148,14 +1161,14 @@ for(
 ?>
 ```
 
-| 16  | ![Exercice 16](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 16 | Créez une copie du fichier `16-boucle-for.php` dans votre espace stagiaire, puis créez les boucles for telles qu'indiquées dans les commentaires |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------------------------------: |
+| 16 | ![Exercice 16](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 16 | Créez une copie du fichier `16-boucle-for.php` dans votre espace stagiaire, puis créez les boucles for telles qu'indiquées dans les commentaires |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 Le résultat de l'exercice 16 devrait ressembler à ceci :
 
 ![exercice 16](https://raw.githubusercontent.com/WebDevCF2m2023/PHP-base/main/datas/screenshot-php-base_8080-2024.01.09-15_54_20.png)
 
----
+--- 
 
 [Retour au menu](#menu-de-navigation)
 
@@ -1208,8 +1221,8 @@ foreach($fruits as $clef => $fruit){
 ?>
 ```
 
-| 17  | ![Exercice 17](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 17 | Créez une copie du fichier `17-boucle-foreach.php` et `array.php` dans votre espace stagiaire, puis créez les boucles foreach telles qu'indiquées dans les commentaires |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 17 | ![Exercice 17](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 17 | Créez une copie du fichier `17-boucle-foreach.php` et `array.php` dans votre espace stagiaire, puis créez les boucles foreach telles qu'indiquées dans les commentaires |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
 Le résultat de l'exercice 17 devrait ressembler à ceci :
 
@@ -1219,7 +1232,7 @@ Le résultat de l'exercice 17 devrait ressembler à ceci :
 
 [Retour au menu](#menu-de-navigation)
 
----
+--- 
 
 ### while
 
@@ -1246,14 +1259,15 @@ while($i<=10){
 ?>
 ```
 
-| 18  | ![Exercice 18](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 18 | Créez une copie du fichier `18-boucle-while.php` dans votre espace stagiaire, puis créez les boucles while telles qu'indiquées dans les commentaires |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 18 | ![Exercice 18](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 18 | Créez une copie du fichier `18-boucle-while.php`  dans votre espace stagiaire, puis créez les boucles while telles qu'indiquées dans les commentaires |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|  
+
 
 ---
 
 [Retour au menu](#menu-de-navigation)
 
----
+--- 
 
 ### do while
 
@@ -1302,11 +1316,12 @@ do{
 ?>
 ```
 
+
 ---
 
 [Retour au menu](#menu-de-navigation)
 
----
+--- 
 
 ## Les inclusions
 
@@ -1328,7 +1343,7 @@ Les expressions de langage _include | include_once | require | require_once_ per
 include("menu.php");
 ?>
 <p>ma page html, affichée même en cas d'erreur</p>
-<?php
+<?php   
 // inclut et exécute le fichier "menu.php"
 include("menu.php");
 ?>
@@ -1350,7 +1365,7 @@ include("menu.php");
 include_once("menu.php");
 ?>
 <p>ma page html, affichée même en cas d'erreur</p>
-<?php
+<?php   
 // n'affiche rien, le fichier "menu.php" a déjà été inclus
 include_once("menu.php");
 ?>
@@ -1372,7 +1387,7 @@ include_once("menu.php");
 require("menu.php");
 ?>
 <p>ma page html, non affichée en cas d'erreur du require</p>
-<?php
+<?php   
 // inclut et exécute le fichier "menu.php"
 require("menu.php");
 ?>
@@ -1394,7 +1409,7 @@ require("menu.php");
 require_once("menu.php");
 ?>
 <p>ma page html, non affichée en cas d'erreur du require</p>
-<?php
+<?php   
 // n'affiche rien, le fichier "menu.php" a déjà été inclus
 require_once("menu.php");
 ?>
@@ -1406,8 +1421,9 @@ require_once("menu.php");
 
 ---
 
-| 19  | ![Exercice 19](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 19 | Copiez les dossiers `formateur\19-recap-pierre` et `formateur\19-recap-CF` dans votre dossier stagiaire. Imitez le site `formateur\19-recap-pierre` en créant une navigation par contrôleur frontal (il se trouve dans `formateur\19-recap-CF\public`) => 1 seule page, et une navigation par une variable de type `$_GET`, qui va chercher les pages dans `formateur\19-recap-CF\view` suivant le lien cliqué. |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+
+| 19 | ![Exercice 19](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 19 | Copiez les dossiers `formateur\19-recap-pierre` et `formateur\19-recap-CF` dans votre dossier stagiaire. Imitez le site `formateur\19-recap-pierre` en créant une navigation par contrôleur frontal (il se trouve dans `formateur\19-recap-CF\public`) => 1 seule page, et une navigation par une variable de type `$_GET`, qui va chercher les pages dans `formateur\19-recap-CF\view` suivant le lien cliqué. |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:| 
 
 ---
 
@@ -1425,7 +1441,7 @@ Il existe des fonctions prédéfinies en PHP, comme `echo()` ou `print()`, qu'on
 
 Il existe aussi des fonctions définies par l'utilisateur.
 
----
+--- 
 
 [Retour au menu](#menu-de-navigation)
 
@@ -1443,11 +1459,13 @@ Les fonctions natives, ainsi que leurs paramètres, seront à connaître à ce p
 
 [Liste des fonctions à connaître](https://listphp8.cf2m.be/)
 
----
+--- 
 
 [Retour au menu](#menu-de-navigation)
 
 ---
+
+
 
 ### Les fonctions personnalisées
 
@@ -1482,7 +1500,7 @@ Pour appeler une fonction, on utilise son nom suivi des parenthèses `()`.
 echo bonjour();
 ```
 
----
+--- 
 
 [Retour au menu](#menu-de-navigation)
 
@@ -1490,7 +1508,7 @@ echo bonjour();
 
 #### Les paramètres de fonction
 
-Une fonction peut prendre des paramètres, qui sont des variables qui seront utilisées dans la fonction. Le terme argument est aussi utilisé.
+Une fonction peut prendre des paramètres, qui sont des variables qui seront utilisées dans la fonction. Le terme argument est aussi utilisé. 
 
 Les paramètres sont définis entre les parenthèses `()` de la fonction, séparés par des virgules `,`.
 
@@ -1513,13 +1531,15 @@ Pour appeler une fonction (ici une procédure) avec des paramètres, on utilise 
 bonjour("John");
 ```
 
-| 20  | ![Exercice 20](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 20 | Crée un fichier nommé `20-ma-fonction.php` dans laquelle tu crée une fonction nommée `estPair` qui vérifie si un entier est pair, puis dans le même fichier testez la fonction ! |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
-| 21  | ![Exercice 21](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 21 | Copie le fichier nommé `21-ma-calculette.php` dans ton dossier depuis formateur, dans laquelle tu crée une fonction nommée `calculSimple()` qui vérifie peux calculer les `+`, `-`, `*`, `/`, |
-| --- | :--------------------------------------------------------------------------------------------------------: | :---------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
----
+| 20 | ![Exercice 20](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 20 | Crée un fichier nommé `20-ma-fonction.php` dans laquelle tu crée une fonction nommée `estPair` qui vérifie si un entier est pair, puis dans le même fichier testez la fonction ! |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:| 
+
+| 21 | ![Exercice 21](https://github.com/mikhawa/PHP-base/blob/main/datas/folder-type-php-opened_24.png?raw=true) | Exercice 21 | Copie le fichier nommé `21-ma-calculette.php` dans ton dossier depuis formateur, dans laquelle tu crée une fonction nommée `calculSimple()` qui vérifie peux calculer les `+`, `-`, `*`, `/`, |
+|----|:----------------------------------------------------------------------------------------------------------:|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:| 
+
+--- 
 
 [Retour au menu](#menu-de-navigation)
 
@@ -1545,7 +1565,7 @@ function bonjour($prenom = "John"){
 }
 ```
 
----
+--- 
 
 [Retour au menu](#menu-de-navigation)
 
@@ -1567,7 +1587,7 @@ echo "<hr>";
 echo str_replace(subject: $str, replace: " ", search: "-");
 ```
 
----
+--- 
 
 [Retour au menu](#menu-de-navigation)
 
@@ -1596,17 +1616,19 @@ Pour appeler une fonction avec des paramètres, on utilise son nom suivi des par
 echo bonjour("John");
 ```
 
----
+
+--- 
 
 [Retour au menu](#menu-de-navigation)
 
 ---
 
 ## Function à mettre en liste
+_$variablesSuperglobales_, _GET_, _echo_, _var_dump()_, _count()_, _if_, _else_, _elseif_, _isset()_, _empty()_, _print_r()_, _switch()_, inclusions (include, include_once, require, require_once), for(), foreach(), while(), do{ }while(), _mt_rand()_, _date()_, str_replace(), gettype(), settype(), cast, unset(), is_*
 
-_echo_, _var_dump()_, _count()_, _if_, _else_, _elseif_, _isset()_, _empty()_, _print_r()_, _switch()_, inclusions (include, include*once, require, require_once), for(), foreach(), while(), do{ }while(), mt_rand(), date(), str_replace(), gettype(), settype(), cast, unset(), is*\*
 
 En cours de création : https://listphp8.cf2m.be/
+
 
 ---
 
