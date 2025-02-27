@@ -24,5 +24,5 @@ echo estPair(chiffre:4,italique:true);
 echo "<br>";
 //echo estPair(true, 5);
 echo "<br>";
-$nb = round(3.99);
+$nb = (int) round(3.99);
 echo estPair($nb);
